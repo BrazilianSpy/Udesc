@@ -3,12 +3,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import dados.Cinema;
-import dados.Distribuidora;
-import dados.Sala;
-import dados.Filme;
-import dados.Poltrona.TipoPoltrona;
-import dados.Filme.Classificacao;
+import dados.Classes.Cinema;
+import dados.Classes.Distribuidora;
+import dados.Classes.Filme;
+import dados.Classes.Sala;
+import dados.Enum.*;
 
 public class Sistema {
 
@@ -117,9 +116,16 @@ public class Sistema {
 
         repetir = true;
         while (repetir) {
-            System.out.println("Digite o genero do filme, use \"sair\" para parar");
-            String genero = leitor.nextLine();
-            if (genero.toLowerCase() == "sair" && filme.getGeneros().size() > 0) {
+            System.out.println("Digite o genero do filme:");
+            System.out.println("1 - Ação");
+            System.out.println("2 - ");
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+            System.out.println("0 - Parar");
+            int genero = Integer.parseInt(leitor.nextLine());
+            if (genero == 0 && filme.getGeneros().size() > 0) {
                 repetir = false;
 
             } else if (filme.adicionarGenero(genero)) {
@@ -167,9 +173,8 @@ public class Sistema {
     public int menu() {
         System.out.println("Sistema de Cinemas");
         System.out.println("1 - Cadastrar");
-        System.out.println("2 - Alterar");
-        System.out.println("3 - Criar Sessão");
-        System.out.println("4 - Comprar ingresso");
+        System.out.println("2 - Criar Sessão");
+        System.out.println("3 - Comprar ingresso");
         System.out.println("0 - Sair");
         return Integer.parseInt(leitor.nextLine());
     }
@@ -180,15 +185,6 @@ public class Sistema {
         System.out.println("2 - Cinema");
         System.out.println("3 - Poltrona");
         System.out.println("0 - Voltar");
-        return Integer.parseInt(leitor.nextLine());
-    }
-
-    public int alterar() {
-        System.out.println("Sistema de alteração");
-        System.out.println("1 - Filme");
-        System.out.println("2 - Cinema");
-        System.out.println("3 - Sala");
-        System.out.println("0 - voltar");
         return Integer.parseInt(leitor.nextLine());
     }
 
@@ -225,32 +221,6 @@ public class Sistema {
                     }
                     break;
 
-                case 2: // alterar
-                    while (interno) {
-                        acao = alterar();
-                        switch (acao) {
-                            case 1:
-
-                                break;
-                            
-                            case 2:
-
-                                break;
-
-                            case 3:
-
-                                break;
-                            
-                            case 0:
-
-                                break;
-
-                            default:
-                                System.out.println("Input desconhecido");
-                                break;
-                        }
-                    }
-            
                 default:
                     break;
             }
